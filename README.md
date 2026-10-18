@@ -47,7 +47,7 @@ The timestamp in each file name is when the documented work or decision happened
 |-----|--------|
 | `isaas-buyer-catalog-browsing-backend/.../spring-boot-boilerplate-2026-10-18-02-11.md` | Spring Boot setup, local vs deployed configuration, CI with secrets |
 | `isaas-vendor-catalog-mgmt-backend/.../spring-boot-boilerplate-2026-10-18-02-10.md` | Review outcomes: CI secrets with a `check-config` guard, local-config note, publish-gate rule |
-| `isaas-buyer-catalog-frontend/.../nextjs-boilerplate-2026-10-18-01-40.md` | Next.js setup, and how it differs from the vendor frontend at merge |
+| `isaas-buyer-catalog-frontend/.../nextjs-boilerplate-2026-10-18-01-40.md` | Next.js setup, and the follow-up PR that aligned it with the vendor frontend |
 | `isaas-vendor-catalog-frontend/.../nextjs-boilerplate-2026-10-18-01-42.md` | Request-time backend status, Playwright e2e, no-lockfile policy, logo icons, `AGENTS.md` docs pointer |
 | `isaas-buyer-catalog-browsing-agent-app/.../mcp-server-boilerplate-2026-10-18-01-49.md` | Buyer MCP server settings and the end-to-end check |
 | `isaas-vendor-catalog-mgmt-agent-app/.../mcp-server-boilerplate-2026-10-18-01-48.md` | MCP SDK 2.x, tools as classes under `tools/`, no nested functions, testing approach |
@@ -56,7 +56,6 @@ The timestamp in each file name is when the documented work or decision happened
 
 - The database schema is live on Neon as `v1.0.0`, with sample catalog data seeded.
 - All six application repos have merged boilerplate with green CI: each app starts, reaches its backend or database, and reports health. No catalog features yet.
-- The buyer frontend still needs the vendor frontend's review changes (Playwright, no lockfile, online docs in `AGENTS.md`).
 - The auth and membership schema additions are designed but not yet migrated.
 
 ## Contributing

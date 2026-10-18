@@ -58,7 +58,7 @@ Trade-offs that were discussed:
 
 ## 5. Frontend dependency policy
 
-Decided in review of the vendor frontend:
+Decided in review of the vendor frontend, and applied to the buyer frontend in `isaas-buyer-catalog-frontend#2`:
 
 - No `package-lock.json` in the repo; it is gitignored.
 - CI runs `npm install` without the `setup-node` npm cache, so every run resolves dependencies fresh.
@@ -79,7 +79,6 @@ See the agent app docs in `isaas-*-agent-app/boilerplate-and-ci/`.
 
 ## 7. Next steps
 
-- Bring `isaas-buyer-catalog-frontend` in line with the vendor frontend: Playwright e2e, no lockfile, `npm install` in CI, and online Next.js docs in `AGENTS.md`. It currently only has the shared logo icons.
 - Add Spring Security with Auth0 to both backends, after the auth and membership schema is migrated in `isaas-database`.
 - Add brand colors (a purple gradient from the logo) to the frontends; deferred in review.
 - Decide hosting for the backends and agent apps; the frontends go to Vercel.
