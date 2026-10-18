@@ -31,6 +31,7 @@ The timestamp in each file name is when the documented work or decision happened
 | `database-engine-and-provider-2026-09-27-19-59.md` | PostgreSQL over MySQL and Oracle, Neon over RDS, Supabase and others |
 | `application-stack-2026-09-27-20-46.md` | Spring Boot backends, Next.js frontends on Vercel, Python MCP agent services |
 | `auth-provider-2026-09-27-20-49.md` | Auth0 as an identity-only provider |
+| `app-repos-versions-and-ci-2026-10-17-22-17.md` | The six app repos: versions, ports, shared CI conventions, CI secrets and frontend dependency policy |
 
 ### `isaas-platform/architecture`
 
@@ -40,10 +41,21 @@ The timestamp in each file name is when the documented work or decision happened
 | `service-boundaries-2026-09-27-20-46.md` | How frontends, backends, agent services and the database talk to each other |
 | `auth-and-membership-2026-09-27-20-55.md` | How people join a buyer company or vendor: bootstrap, peer approval, SSO (designed, not yet migrated) |
 
+### Application repos (`<repo>/boilerplate-and-ci`)
+
+| Doc | Covers |
+|-----|--------|
+| `isaas-buyer-catalog-browsing-backend/.../spring-boot-boilerplate-2026-10-18-02-11.md` | Spring Boot setup, local vs deployed configuration, CI with secrets |
+| `isaas-vendor-catalog-mgmt-backend/.../spring-boot-boilerplate-2026-10-18-02-10.md` | Review outcomes: CI secrets with a `check-config` guard, local-config note, publish-gate rule |
+| `isaas-buyer-catalog-frontend/.../nextjs-boilerplate-2026-10-18-01-40.md` | Next.js setup, and the follow-up PR that aligned it with the vendor frontend |
+| `isaas-vendor-catalog-frontend/.../nextjs-boilerplate-2026-10-18-01-42.md` | Request-time backend status, Playwright e2e, no-lockfile policy, logo icons, `AGENTS.md` docs pointer |
+| `isaas-buyer-catalog-browsing-agent-app/.../mcp-server-boilerplate-2026-10-18-01-49.md` | Buyer MCP server settings and the end-to-end check |
+| `isaas-vendor-catalog-mgmt-agent-app/.../mcp-server-boilerplate-2026-10-18-01-48.md` | MCP SDK 2.x, tools as classes under `tools/`, no nested functions, testing approach |
+
 ## Current state
 
 - The database schema is live on Neon as `v1.0.0`, with sample catalog data seeded.
-- The application repos (buyer and vendor frontends, backends and agent services) are created but empty. Boilerplate is the next step.
+- All six application repos have merged boilerplate with green CI: each app starts, reaches its backend or database, and reports health. No catalog features yet.
 - The auth and membership schema additions are designed but not yet migrated.
 
 ## Contributing
