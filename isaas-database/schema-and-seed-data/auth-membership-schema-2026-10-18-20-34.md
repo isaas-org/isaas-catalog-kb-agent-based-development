@@ -17,7 +17,7 @@ Six migrations on top of `v1.0.0`, one concern each:
 20261018200500_create_access_tokens.sql
 ```
 
-Plus five test files (`12` to `16`), three seed files (`05` to `07`), `scripts/bootstrap_staff.sh` and README updates.
+Plus five test files (`12` to `16`), four seed files (`05` to `08`), `scripts/bootstrap_staff.sh` and README updates.
 
 ## 2. Identity, staff and verification
 
@@ -92,7 +92,8 @@ Access tokens (`vendor_access_tokens`, `buyer_access_tokens`) hold `token_prefix
 - `05_buyer_companies.sql`: Harbor Health and Brightline Retail (active), Fernway Logistics (pending), each with an admin. Matched by name, since buyer companies have no natural unique key.
 - `06_test_users.sql`: one member per role, plus Dana in a vendor and a buyer company under one email. Test data only.
 - `07_verification_requests.sql`: pending registration, authority and ID documents for Cascade Labs and Fernway.
-- `scripts/bootstrap_staff.sh`: `STAFF_EMAIL` / `STAFF_NAME` in, staff admin row out; re-runnable.
+- `08_staff.sql`: the repo owner as staff admin, and as `verified_by_staff_id` on every seeded verified company. Added on the owner's review request; it sits in the seeds rather than a migration so migrations stay schema-only and test databases hold no personal data.
+- `scripts/bootstrap_staff.sh`: `STAFF_EMAIL` / `STAFF_NAME` in, staff admin row out; re-runnable. For other staff, until the backend's staff endpoints exist.
 
 Verified locally against `postgres:18` with dbmate v2.36.0: `test.sh` (16 files, full rollback, round trip) and `test_deploy.sh` pass. Every one of the 42 new constraints, indexes and triggers was dropped in a scratch database and its test failed. Upgrading a `v1.0.0` database that holds the old seed data works, and seeding twice leaves the same rows.
 
@@ -100,6 +101,6 @@ The test fixtures changed: `company.one` and `company.two` are now inserted `act
 
 ## 7. Next steps
 
-- Repo owner merges PR #3 and approves the deploy (expected `v1.1.0`), then runs the seed workflow and `bootstrap_staff.sh` against Neon.
+- Repo owner merges PR #3 and approves the deploy (expected `v1.1.0`), then runs the seed workflow against Neon (which also adds the owner as staff).
 - Backends (FD-7) map the new `check_violation` messages to API errors, as with the publish gate.
 - Decide the lowest vendor role for SSO-provisioned members; the database doesn't constrain it yet.

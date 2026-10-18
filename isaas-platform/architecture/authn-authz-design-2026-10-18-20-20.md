@@ -73,7 +73,7 @@ Invites are allowed while pending because the person holding the verification do
 Staff review verification and recover companies with no usable admin. Decisions:
 
 - New schema `platform`, table `platform.staff_users` (roles admin/reviewer). It fills the dangling `reviewed_by_staff_id` from `v1.0.0`.
-- The first staff admin is the repo owner, added by `scripts/bootstrap_staff.sh` with the email passed in, not committed. Signing up on Auth0 never makes anyone staff.
+- The first staff admin is the repo owner, seeded by `isaas-database` `db/seeds/08_staff.sql` at the owner's request in the PR review (the earlier plan kept the email out of the repo and used `scripts/bootstrap_staff.sh`, which remains for other staff). The owner is also recorded as verifier of every seeded verified company. Signing up on Auth0 never makes anyone staff.
 - Staff endpoints require MFA (`amr` contains `mfa`).
 - Each backend gets `/staff/...` endpoints for its own side. No staff UI this round; staff use an API client. A staff console, if needed, gets its own repo so staff pages never sit in a customer app.
 

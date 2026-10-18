@@ -63,7 +63,7 @@ Seeded in `isaas-database` (`02_vendors.sql`, `05_buyer_companies.sql`, `06_test
 | Brightline Retail Co. (buyer) | active | `admin@brightline-retail.test`, `dana@pulseboard.test` (viewer); cross-company isolation |
 | Fernway Logistics (buyer) | pending | `admin@fernway-logistics.test`; buyer gates and staff review |
 | None | unaffiliated | One Auth0-only user for the create-company and join flows |
-| Staff | admin | The repo owner, via `scripts/bootstrap_staff.sh` |
+| Staff | admin | The repo owner, seeded by `08_staff.sql` |
 
 Dana is one login with two memberships, one per side.
 
