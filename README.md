@@ -25,6 +25,12 @@ The timestamp in each file name is when the documented work or decision happened
 | `catalog-seed-data-injection-2026-10-11-03-17.md` | Sample vendors, items and taxonomy, and the manual seed workflow |
 | `auth-membership-schema-2026-10-18-20-34.md` | FD-8: staff, Auth0 identity columns, buyer verification gate, join requests, access tokens, test-user seeds |
 
+### `isaas-auth0-config/tenant-config`
+
+| Doc | Covers |
+|-----|--------|
+| `auth0-tenant-as-code-2026-10-31-20-10.md` | FD-7: dev tenant in `tenant.yaml` via the Deploy CLI, the claims Action, test-user script |
+
 ### `isaas-platform/language-and-framework`
 
 | Doc | Covers |
@@ -43,6 +49,14 @@ The timestamp in each file name is when the documented work or decision happened
 | `auth-and-membership-2026-09-27-20-55.md` | How people join a buyer company or vendor: bootstrap, peer approval, SSO (first design) |
 | `authn-authz-design-2026-10-18-20-20.md` | Auth0 setup, membership only from the database, verification of company and person, buyer verification as a hard gate, staff |
 | `agent-auth-and-test-users-2026-10-18-20-20.md` | Personal access tokens for agent apps now, OAuth later; durable Auth0 test users and the test-user matrix |
+| `auth-decisions-after-fd8-2026-10-19-00-45.md` | No staff MFA in the dev tenant, SSO default roles, API identifiers, how apps and APIs connect, where secrets live |
+
+### Application repos (`<repo>/auth-and-membership`)
+
+| Doc | Covers |
+|-----|--------|
+| `isaas-vendor-catalog-mgmt-backend/.../auth0-resource-server-and-membership-2026-10-19-01-12.md` | FD-7: bearer auth (Auth0 or access token), membership from the database, onboarding, members, staff review, access tokens |
+| `isaas-buyer-catalog-browsing-backend/.../auth0-resource-server-and-membership-2026-10-19-01-15.md` | FD-7: the buyer-side differences |
 
 ### Application repos (`<repo>/boilerplate-and-ci`)
 
@@ -59,7 +73,7 @@ The timestamp in each file name is when the documented work or decision happened
 
 - The database schema is live on Neon as `v1.0.0`, with sample catalog data seeded.
 - All six application repos have merged boilerplate with green CI: each app starts, reaches its backend or database, and reports health. No catalog features yet.
-- The auth and membership schema (FD-8) is built and in review as `isaas-database` PR #3. Backends (FD-7), frontends (FD-6) and agent apps (FD-11) follow.
+- Auth: the membership schema (FD-8), the Auth0 tenant config and both backends' authentication and authorization (FD-7) are merged. Frontends (FD-6) and agent apps (FD-11) follow.
 
 ## Contributing
 
